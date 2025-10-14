@@ -54,6 +54,8 @@ let isFirstPlayer = true;
 function botChoice() {
     isFirstPlayer = !isFirstPlayer;
     changePlayer();
+    disablePlay();
+    
     const empty = document.querySelectorAll(".empty");
     const emptyCell = cell.filter((cell)=>{
         return isFinite(cell)
@@ -71,6 +73,7 @@ function botChoice() {
         gameCell[randomCell].classList.add(currentPlayer);
         setTimeout(()=> {
             displayAnimation(randomCell, currentPlayer);
+            enablePlay()
         }, 900)
     } else {
         console.log("Ai can't choose again");
@@ -78,7 +81,6 @@ function botChoice() {
 
     pass();
     isFirstPlayer = !isFirstPlayer;
-
 }
 
 
@@ -116,14 +118,33 @@ function pass(){
 
 function displayWinner(currentPlayer) {
     if (currentPlayer === "x") {  
-            setTimeout(()=>{
-                alert("Player 1 wins");
-                location.reload();
-            }, 500);
-        } else {
-             setTimeout(()=>{
-                alert("Bot wins");
-            }, 1000);
-        }
+        setTimeout(()=>{
+            alert("Player 1 wins");
+            location.reload();
+        }, 400);
+    } else {
+        setTimeout(()=>{
+            alert("Bot wins");
+            location.reload();
+        }, 1300);
+    }
 }
+
+// let isBotPlaying = true;
+
+function enablePlay(){
+    const empty = document.querySelectorAll(".empty");
+    empty.forEach((cell)=>{
+        cell.style = "pointer-events: auto;";
+    });
+        alert("Bot is thinking...")
+}
+
+function disablePlay(){
+    const empty = document.querySelectorAll(".empty");
+    empty.forEach((cell)=>{
+        cell.style = "pointer-events: none;";
+    });
+}
+
 
