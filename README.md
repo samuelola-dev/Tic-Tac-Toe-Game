@@ -1,1 +1,1 @@
-# A fun tic tac toe game created by yours truly 🎉 Enjoy
+# A fun tic tac toe game created by samuelola-dev 🎉 Enjoy
