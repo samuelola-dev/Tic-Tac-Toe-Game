@@ -27,29 +27,13 @@ const symbols = {
 const gameCell = document.querySelectorAll(".empty");
 let currentPlayer = "x";
 
-for (let i = 0; i < gameCell.length; i++) {
-    gameCell[i].addEventListener('click', ()=>{
-        
-        if (gameCell[i].classList.contains("empty")) {
-            cell[i] = currentPlayer;   
-            displayAnimation(i, currentPlayer);
-            gameCell[i].classList.remove("empty");
-            gameCell[i].classList.add(currentPlayer);
-            isFirstPlayer = !isFirstPlayer;
-            pass();
-        }
-        changePlayer();
-        console.log(gameCell);
-        console.log(cell);
 
-    });   
-}
 
 const displayAnimation = (i, currentPlayer) => {
     currentPlayer === 'x' ? gameCell[i].innerHTML = `${symbols.x}` : gameCell[i].innerHTML = `${symbols.o}`    
 }
 
-let isFirstPlayer = true;
+// let isFirstPlayer = true;
 
 function changePlayer() {
     if (isFirstPlayer) {
@@ -78,7 +62,6 @@ function pass(){
         case (cell[6] === currentPlayer && cell[7] === currentPlayer && cell[8] === currentPlayer): displayWinner(currentPlayer); break; 
     }
 
-    displayDraw();
 }
 
 function displayWinner(currentPlayer) {
@@ -92,16 +75,3 @@ function displayWinner(currentPlayer) {
         }
     }, 500);
 }
-
-function displayDraw() {
-    // let x = document.querySelectorAll(".x");
-    // let o = document.querySelectorAll(".o");
-    // if (x.length === 4 && o.length === 5 || x.length === 5 && o.length === 4) {
-    //     alert("Draw!")
-    // }
-
-    // doesn't work
-}
-
-
-// BOT Commands
