@@ -19,8 +19,6 @@ for (let i = 0; i < gameCell.length; i++) {
 
         }
         console.log(gameCell);
-        console.log(cell);
-        
     });   
 }
 
@@ -49,10 +47,7 @@ function botRandom() {
         return isFinite(cell)
     });
 
-    console.log(emptyCell);
-
     randomCell = emptyCell[Math.floor(Math.random() * emptyCell.length)];
-    console.log(randomCell + " is choosen");
     botTurn(randomCell);
 }
 
