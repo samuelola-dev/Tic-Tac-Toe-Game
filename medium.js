@@ -9,24 +9,24 @@ function botChoice() {
     isFirstPlayer = !isFirstPlayer;
     changePlayer();
     disablePlay();
-    easyMode();
+    mediumMode();
     isFirstPlayer = !isFirstPlayer;
 }
 
-// Easy Mode
+// Medium Mode
 
-function easyMode(){
+function mediumMode(){
     botWin()
     pass();
 }
 
 
-// Low Wining Chances (40%)
+// Medium Wining Chances (80%)
 function botCanWin(winCell){
-    const win = [true, false, false, false, true]
+    const win = [true, true, false, true, true]
     const winDecision = win[Math.floor(Math.random() * win.length)]
 
-    if (winDecision) {
+     if (winDecision) {
         console.log("Bot: can win 'n taken");
         botTurn(winCell);
     } else {
@@ -35,16 +35,16 @@ function botCanWin(winCell){
     }
 }
 
-// Low Block Chances (40%)
+// Medium Block Chances (80%)
 function botCanBlock(blockedCell){
-    const block = [true, false, false, true, false];
+    const block = [true, true, false, true, true];
     const blockDecision = block[Math.floor(Math.random() * block.length)];
 
     if (blockDecision){
         console.log("Bot: can block 'n taken");
         botTurn(blockedCell);
     } else {
-        console.log("Bot: can block 'n ignores")
+        console.log("Bot: can block 'n ignored")
         botRandom();
     }
 }
