@@ -63,14 +63,16 @@ function pass(){
 
 }
 
+const dialog = document.querySelector("dialog")
 function displayWinner(currentPlayer) {
+    const status = document.querySelector("#status");
+    if (currentPlayer === "x") {
+        status.innerHTML = 'Player 1 wins'
+        botCanPlay = !botCanPlay;
+    } else {
+        status.innerHTML = 'Player 2 wins'
+    }
     setTimeout(()=>{
-        if (currentPlayer === "x") {  
-            alert("Player 1 wins");
-            location.reload()
-        } else {
-            alert("Player 2 wins");
-            location.reload()
-        }
-    }, 500);
+        dialog.showModal()
+    }, 700)
 }
