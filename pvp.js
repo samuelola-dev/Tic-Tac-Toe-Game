@@ -1,4 +1,6 @@
 let isFirstPlayer = true;
+let currentPlayer = "x";
+
 
 for (let i = 0; i < gameCell.length; i++) {
     gameCell[i].addEventListener('click', ()=>{

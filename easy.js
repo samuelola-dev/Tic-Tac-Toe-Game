@@ -1,33 +1,9 @@
 let firstPlayer = "x";
 let bot = "o";
+// let currentPlayer = "x";
 
 // Store first player and second player in local storage
 
-let currentPlayer = "x";
-
-for (let i = 0; i < gameCell.length; i++) {
-    gameCell[i].addEventListener('click', ()=>{
-        
-        if (gameCell[i].classList.contains("empty")) {
-            changePlayer();
-            cell[i] = currentPlayer;   
-            displayAnimation(i, currentPlayer);
-            gameCell[i].classList.remove("empty");
-            gameCell[i].classList.add(currentPlayer);
-            pass();
-            botChoice();
-        }
-        console.log(gameCell);
-        console.log(cell);
-        
-    });   
-}
-
-const displayAnimation = (i, currentPlayer) => {
-    currentPlayer === 'x' ? gameCell[i].innerHTML = `${symbols.x}` : gameCell[i].innerHTML = `${symbols.o}`    
-}
-
-let isFirstPlayer = true;
 
 function botChoice() {
     isFirstPlayer = !isFirstPlayer;
@@ -38,117 +14,17 @@ function botChoice() {
 }
 
 
-function changePlayer() {
-    if (isFirstPlayer) {
-        currentPlayer = "x";
-    } else {
-        currentPlayer = "o"
-    }
-}
-
-
-function pass(){
-
-    switch (true) {
-        // diagonal wins
-        case (cell[0] === currentPlayer && cell[4] === currentPlayer && cell[8] === currentPlayer): displayWinner(currentPlayer); break;
-        case (cell[2] === currentPlayer && cell[4] === currentPlayer && cell[6] === currentPlayer): displayWinner(currentPlayer); break;
-        
-        // vertical wins
-        case (cell[0] === currentPlayer && cell[3] === currentPlayer && cell[6] === currentPlayer): displayWinner(currentPlayer); break;
-        case (cell[1] === currentPlayer && cell[4] === currentPlayer && cell[7] === currentPlayer): displayWinner(currentPlayer); break; 
-        case (cell[2] === currentPlayer && cell[5] === currentPlayer && cell[8] === currentPlayer): displayWinner(currentPlayer); break; 
-        
-        // horizontal wins
-        case (cell[0] === currentPlayer && cell[1] === currentPlayer && cell[2] === currentPlayer): displayWinner(currentPlayer); break; 
-        case (cell[3] === currentPlayer && cell[4] === currentPlayer && cell[5] === currentPlayer): displayWinner(currentPlayer); break; 
-        case (cell[6] === currentPlayer && cell[7] === currentPlayer && cell[8] === currentPlayer): displayWinner(currentPlayer); break; 
-    }
-
-    // displayDraw();
-}
-
-function displayWinner(currentPlayer) {
-    if (currentPlayer === "x") {  
-        alert("Player 1 wins");
-        setTimeout(()=>{
-            location.reload();
-        }, 400);
-    } else {
-        setTimeout(()=>{
-            alert("Bot wins");
-            location.reload();
-        }, 1300);
-    }
-}
-
-// let isBotPlaying = true;
-
-// Turn enable and disable play into conditions for cleaner codes
-
-function enablePlay(){
-    const empty = document.querySelectorAll(".empty");
-    empty.forEach((cell)=>{
-        cell.style = "pointer-events: auto;";
-    });
-        // alert("Bot is thinking...")
-}
-
-function disablePlay(){
-    const empty = document.querySelectorAll(".empty");
-    empty.forEach((cell)=>{
-        cell.style = "pointer-events: none;";
-    });
-}
-
-
-
 
 // Easy Mode
+
 function easyMode(){
     // Bot chooses to block or not block (2 out of 3 times)
     const win = [false, false, true, false]
     const winDecision = win[Math.floor(Math.random() * win.length)]
-    // botWin()
     botBlock();
-    // botRandom()
     pass();
 }
 
-
-// Bot generates a random cell
-let randomCell = '';
-function botRandom() {
-    const emptyCell = cell.filter((cell)=>{
-        return isFinite(cell)
-    });
-
-    // console.log("Bot is " + currentPlayer)
-    console.log(emptyCell);
-
-    randomCell = emptyCell[Math.floor(Math.random() * emptyCell.length)];
-    console.log(randomCell + " is choosen");
-    botTurn(randomCell);
-}
-
-// Bot picks selected cell
-function botTurn(selectedCell) {
-    // adds selected cell
-    if (isFinite(selectedCell)) {
-        cell[selectedCell] = currentPlayer;
-        gameCell[selectedCell].classList.remove("empty");
-        gameCell[selectedCell].classList.add(currentPlayer);
-
-        setTimeout(()=> {
-            displayAnimation(selectedCell, currentPlayer);
-            enablePlay()
-        }, 900)
-
-    } else {
-            alert("Draw")
-            location.reload();
-    }
-}
 
 
 // If can bot block
@@ -242,5 +118,3 @@ function botWin(){
         default: botBlock(); break;
     }
 }
-
-console.log(sam);
