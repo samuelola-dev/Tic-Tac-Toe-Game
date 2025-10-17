@@ -25,7 +25,6 @@ const symbols = {
 }
 
 const gameCell = document.querySelectorAll(".empty");
-let currentPlayer = "x";
 
 
 
