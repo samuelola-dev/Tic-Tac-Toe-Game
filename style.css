@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Noto sans';
     font-weight: bold;
 }
 
@@ -10,21 +10,88 @@
     --thin-borders: 1px solid black;
 }
 
+html{
+    
+}
+
 body{
-    background-color: #1c70b4;
+    /* background-color: #1c70b4; */
 
 }
 
 .app{
+    width: 100%;
+}
+
+
+.score-board{
+    display: flex;
+    gap: 10px;
+    margin: auto;
+    margin-top: 10px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.score-board > .scores{
+    height: 80px;
+    border: var(--thin-borders);
+    border-radius: 10px;
+}
+
+.draw{
+    width: 100px;
+}
+
+.player-score{
+    display: flex;
+    width: 300px;
+}
+
+.profile{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0px;
+    width: 70%;
+    height: 100%;
+    border-top: none;
+    border-bottom: none;
+    border: var(--thin-borders);
+}
+
+.avatar{
+    width: 50px;
+    height: 50px;
+    border: var(--thin-borders);
+    border-radius: 50%;
+    /* margin-left: 10px; */
+}
+
+p{
+    position: relative;
+    font-size: 23px;
+    /* margin-left: 10px; */
+
+}
+
+.score{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    width: 30%;
+    /* border: var(--thin-borders); */
 }
 
 .game{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    row-gap: 150px;
+    width: 100%;
+    margin-top: 120px;
     border-radius: 20px;
-    padding: 80px 60px;
+    /* padding: 80px 60px; */
     /* background-color: #4682B4; */
 }
 
@@ -32,18 +99,19 @@ body{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 230px;
     gap: 10px;
-    width: 200px;
 }
 
 .cell{
     display: flex;
     justify-content: center;
-    width: 60px;
-    height: 60px;
-    /* background-color: #AEC6D1; */
-    background-color: #b8d0db;
-    /* border: var(--thin-borders); */
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    /* background-color: white; */
+    /* background-color: #b8d0db; */
+    border: var(--thin-borders);
     border-radius: 5px;
 }
 
