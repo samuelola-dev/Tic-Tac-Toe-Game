@@ -169,7 +169,7 @@ body{
 }
 
 
-.game-title{
+.game-title, .bot-level-prompt h3{
     margin-bottom: 15px;
     outline: none;
     color: var(--x-color);
@@ -178,7 +178,7 @@ body{
     text-align: center;
 }
 
-.game-modes-container{
+.game-modes-container, .bot-level-container{
     display: flex;
     flex-direction: column;
     width: 280px;
@@ -196,9 +196,9 @@ body{
     border: none;
     text-align: center;
     text-transform: uppercase;
-}   .game-mode:focus{
+}   .game-mode:focus, .bot-level:focus{
     outline: none;
-}   .game-mode:hover{
+}   .game-mode:hover, .bot-level:hover{
     border-radius: 5px;
     outline:  1px solid var(--x-color);
     outline-offset: 2px;
@@ -206,7 +206,7 @@ body{
     transition: outline 0.8s ease;
 }
 
-.game-mode .avatar{
+.avatar{
     border-radius: 50%;
     height: 100%;
 }
@@ -216,5 +216,17 @@ body{
     position: relative;
     top: 15px;
 }
+
+.bot-level{
+    width: 100%;
+    height: 45px;
+    padding: 0px;
+    color: var(--x-color);
+    background-color: inherit;
+    border: none;
+    font-size: 1rem;
+    text-align: center;
+}
+
 
 
