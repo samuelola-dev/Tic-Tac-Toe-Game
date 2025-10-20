@@ -22,6 +22,19 @@ for (let i = 0; i < gameCell.length; i++) {
     });   
 }
 
+const dialog = document.querySelector("dialog");
+dialog.showModal();
+// setTimeout(()=>{dialog.showModal()}, 700);
+
+function displayWinner(currentPlayer) {
+    const status = document.querySelector("#status");
+    currentPlayer === "x" ? status.innerHTML = 'Player 1 wins' : status.innerHTML = 'Player 2 wins'
+
+    // Bot: stops playing after declaring winner
+    botCanPlay = !botCanPlay;
+}
+
+
 
 // Turn enable and disable play into conditions for cleaner codes
 function enablePlay(){
@@ -155,6 +168,7 @@ function botBlock() {
         default: botRandom(); break;
     }
 }
+
 
 
 

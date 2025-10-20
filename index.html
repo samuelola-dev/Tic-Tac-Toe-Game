@@ -8,7 +8,27 @@
 </head>
 <body>
     <div class="app">
+        <div class="score-board">
+            <div class="score player1">
+                <h3>Player 1</h3>
+                <p class="points">10</p>
+            </div>
+
+            <div class="score draws">
+                <h3>Draws</h3>
+                <p class="points">5</p>
+            </div>
+            
+
+            <div class="score player2">
+                <h3>Player 2</h3>
+                <p class="points">12</p>
+            </div>
+
+        </div> 
+
         <div class="game">
+
             <div class="cells-container">
                 <div class="cell empty"></div>
                 <div class="cell empty"></div>
@@ -20,8 +40,43 @@
                 <div class="cell empty"></div>
                 <div class="cell empty"></div>
             </div>
+
         </div>
     </div>
+
+    <!-- Game Prompts
+    <dialog class="intro">
+        <h3 class="game-title">Tic Tac Toe Game</h3>
+        <div class="game-modes-container">
+
+            Player VS Player
+            <button class="game-mode" onclick="dialog.close()">
+                <img src="./player.png" alt="Player Avatar" class="avatar">
+                <span>Player VS Player</span>
+                <img src="./player.png" alt="Player Avatar" class="avatar"></button>
+            
+            Player VS Bot 
+                <button class="game-mode">
+                <img src="./player.png" alt="Player Avatar" class="avatar">
+                <span>Player VS Bot</span>
+                <img src="./bot.png" alt="Bot Avatar" class="avatar"></button>
+        </div>
+    </dialog> -->
+    
+    <!-- Bot Level Prompt -->
+    <dialog class="bot-level-prompt">
+        <h3>Bot Level</h3>
+        <img src="./images/bot.png" alt="Bot Avatar" class="avatar" style="display: block; margin: 10px auto; width: 60px;">
+        <div class="bot-level-container">
+                <button class="bot-level">Easy</button>
+                <button class="bot-level">Medium</button>
+                <button class="bot-level">Hard</button>
+        </div>
+    </dialog>
+
+
+
+
     <dialog>
         <h4 id="status"></h4>
         <button onclick="location.reload()">Play Again</button>
@@ -29,19 +84,19 @@
 
     <script src="./script.js"></script>
 
-    <!-- Player Vs Player done-->
+    <!-- Player Vs Player -->
     <!-- <script src="./pvp.js"></script> -->
 
     <!-- Player Vs Bot -->
-     <!-- <script src="./bot.js"></script> -->
+     <script src="./bot.js"></script>
 
     <!-- Easy Mode -->
-     <!-- <script src="./easy.js"></script> -->
+     <!-- <script src="./levels/easy.js"></script> -->
 
     <!-- Medium Mode -->
-     <!-- <script src="./medium.js"></script> -->
+     <!-- <script src="./levels/medium.js"></script> -->
 
      <!-- Hard Mode -->
-      <!-- <script src="./hard.js"></script> -->
+      <script src="./levels/hard.js"></script>
 </body>
 </html>

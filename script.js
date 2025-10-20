@@ -7,8 +7,8 @@ const cell = [
 const symbols = {
     x: `
     <div class="x-symbol">
-        <svg viewBox="0 0 120 120" width="60" height="60">
-            <g fill="none" stroke="#4F837A" stroke-width="17" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 120 120" width="65" height="65">
+            <g fill="none" stroke="#00ffff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
             <path class="line1" d="M30 30 L90 90" />
             <path class="line2" d="M90 30 L30 90" />
       </g>
@@ -17,8 +17,8 @@ const symbols = {
     `,
     o:  `
         <div class="o-symbol">
-    <svg viewBox="0 0 120 120" width="60" height="60">
-      <circle cx="60" cy="60" r="34" fill="none" stroke="#D97C67" stroke-width="17" stroke-linecap="round" />
+    <svg viewBox="0 0 120 120" width="65" height="65">
+      <circle cx="60" cy="60" r="34" fill="none" stroke="#ff00ff" stroke-width="16" stroke-linecap="round" />
     </svg>
   </div>
     `
@@ -63,16 +63,3 @@ function pass(){
 
 }
 
-const dialog = document.querySelector("dialog")
-function displayWinner(currentPlayer) {
-    const status = document.querySelector("#status");
-    if (currentPlayer === "x") {
-        status.innerHTML = 'Player 1 wins'
-        botCanPlay = !botCanPlay;
-    } else {
-        status.innerHTML = 'Player 2 wins'
-    }
-    setTimeout(()=>{
-        dialog.showModal()
-    }, 700)
-}

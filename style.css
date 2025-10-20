@@ -2,48 +2,132 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Noto sans';
+    /* font-family: 'Poppins', sans-serif; */
     font-weight: bold;
 }
 
 :root{
     --thin-borders: 1px solid black;
+    --x-color: #00ffff;
+    --o-color: #ff00ff;
+}
+
+html{
+    
 }
 
 body{
-    background-color: #1c70b4;
+    background: linear-gradient(135deg, #0a0a0f);
 
 }
 
 .app{
+    width: 100%;
+}
+
+
+.score-board {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
-    height: 80vh;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+/* Shared style for each score panel */
+.score {
+    background: rgba(15, 15, 25, 0.7);
+    border-radius: 16px;
+    padding: 15px 25px;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    box-shadow: 0 0 12px rgba(255,255,255,0.1);
+    cursor: default;
+}
+
+/* Player 1 (Cyan) */
+.score.player1 {
+    border: 2px solid #00ffff99;
+    box-shadow: 0 0 20px #00ffff44;
+}
+
+.score.player1 h3 {
+    color: #00ffff;
+}
+
+.score.player1 .points {
+    font-size: 2em;
+    color: #00ffff;
+    text-shadow: 0 0 10px var(--x-color);
+}
+
+/* Draws (Neutral Purple Glow) */
+.score.draws {
+    border: 2px solid #8b5cf6aa;
+    box-shadow: 0 0 20px #8b5cf633;
+}
+
+.score.draws h3 {
+    color: #a78bfa;
+}
+
+.score.draws .points {
+    font-size: 2em;
+    color: #a78bfa;
+    text-shadow: 0 0 10px #a78bfa;
+}
+
+/* Player 2 (Magenta) */
+.score.player2 {
+    border: 2px solid #ff00ff99;
+    box-shadow: 0 0 20px #ff00ff44;
+}
+
+.score.player2 h3 {
+    color: var(--o-color);
+}
+
+.score.player2 .points {
+    font-size: 2em;
+    color: var(--o-color);
+    text-shadow: 0 0 10px var(--o-color);
+}
+
+/* Hover glow animation */
+.score:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px currentColor;
 }
 
 .game{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    row-gap: 150px;
+    width: 100%;
+    margin-top: 120px;
     border-radius: 20px;
-    padding: 80px 60px;
-    /* background-color: #4682B4; */
 }
 
 .cells-container{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 230px;
     gap: 10px;
-    width: 200px;
 }
 
 .cell{
     display: flex;
     justify-content: center;
-    width: 60px;
-    height: 60px;
-    /* background-color: #AEC6D1; */
-    background-color: #b8d0db;
-    /* border: var(--thin-borders); */
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    background-color: rgba(20, 20, 30, 0.8);
     border-radius: 5px;
 }
 
@@ -77,32 +161,72 @@ body{
     }
 }
 
-dialog{
-    padding: 50px 70px;
+.intro, .bot-level-prompt{
     margin: auto;
-    margin-top: 20px;
+    padding: 70px 50px;
+    background-color: rgba(15, 15, 25, 0.7);
     border: none;
-    border-radius: 10px;
 }
 
-button{
-    margin-top: 20px;
-    padding: 18px 10px;
-    background-color: #1c70b4;
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
 
-button:focus{
+.game-title, .bot-level-prompt h3{
+    margin-bottom: 15px;
     outline: none;
+    color: var(--x-color);
+    border: none;
+    font-size: 2rem;
+    text-align: center;
 }
 
-button:hover{
-    cursor: pointer;
+.game-modes-container, .bot-level-container{
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    height: fit-content;
+    gap: 15px;
 }
 
-button:active{
-    outline: 2px solid #1c70b4;
+.game-mode{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 45px;
+    padding: 0px;
+    background-color: inherit;
+    border: none;
+    text-align: center;
+    text-transform: uppercase;
+}   .game-mode:focus, .bot-level:focus{
+    outline: none;
+}   .game-mode:hover, .bot-level:hover{
+    border-radius: 5px;
+    outline:  1px solid var(--x-color);
     outline-offset: 2px;
+    cursor: pointer; 
+    transition: outline 0.8s ease;
 }
+
+.avatar{
+    border-radius: 50%;
+    height: 100%;
+}
+
+.game-mode span{
+    color: var(--x-color);
+    position: relative;
+    top: 15px;
+}
+
+.bot-level{
+    width: 100%;
+    height: 45px;
+    padding: 0px;
+    color: var(--x-color);
+    background-color: inherit;
+    border: none;
+    font-size: 1rem;
+    text-align: center;
+}
+
+
+
