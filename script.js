@@ -1,3 +1,39 @@
+// Tic Tac Toe Game by samuelola-dev
+
+// Game Mode Prompt
+const gameModePrompt = document.querySelector(".game-mode-prompt")
+gameModePrompt.showModal();
+
+// Bot Level Prompt
+const botLevelPrompt = document.querySelector(".bot-level-prompt")
+
+// Game Modes
+const gameMode = {
+    pvp: document.createElement('script'),
+    bot: document.createElement('script'),
+}
+
+function selectMode(mode) {
+    if (mode === 'pvp') {
+        gameMode.pvp.src = './pvp.js';
+        document.body.appendChild(gameMode.pvp);
+        gameModePrompt.close();
+    } else if (mode === 'bot') {
+        gameMode.bot.src = './bot.js';
+        document.body.appendChild(gameMode.bot);
+    }
+
+    // If bot game mode was selected
+    gameMode.bot.onload = () =>{
+        // closes first prompt and opens second prompt
+        gameModePrompt.close();
+        botLevelPrompt.showModal()
+    }
+}
+
+
+
+// Tic Tac Toe
 const cell = [
     0, 1, 2, 
     3, 4, 5, 
@@ -24,15 +60,16 @@ const symbols = {
     `
 }
 
+
+
 const gameCell = document.querySelectorAll(".empty");
-
-
-
 const displayAnimation = (i, currentPlayer) => {
     currentPlayer === 'x' ? gameCell[i].innerHTML = `${symbols.x}` : gameCell[i].innerHTML = `${symbols.o}`    
 }
 
 // let isFirstPlayer = true;
+
+
 
 function changePlayer() {
     if (isFirstPlayer) {

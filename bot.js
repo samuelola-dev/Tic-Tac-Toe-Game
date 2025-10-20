@@ -1,3 +1,34 @@
+// Tic Tac Toe Bot
+
+// Bot Levels Prompt
+// const botLevelPrompt = document.querySelector(".bot-level-prompt")
+
+
+// Bot Levels
+const gameLevel = {
+    easy: document.createElement('script'),
+    medium: document.createElement('script'),
+    hard: document.createElement('script'),
+}
+
+// Player chooses bot level
+function startGame(level){
+    if (level === 'easy') {
+        gameLevel.easy.src = './levels/easy.js'
+        document.body.appendChild(gameLevel.easy);
+    } else if (level === 'medium') {
+        gameLevel.medium.src = './levels/medium.js'
+        document.body.appendChild(gameLevel.medium);
+    } else {
+        gameLevel.hard.src = './levels/hard.js'
+        document.body.appendChild(gameLevel.hard);
+    }
+    botLevelPrompt.close();
+}
+
+
+
+
 let isFirstPlayer = true;
 let currentPlayer = "x";
 // let gameCell = document.querySelectorAll('.empty')
