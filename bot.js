@@ -22,14 +22,16 @@ for (let i = 0; i < gameCell.length; i++) {
     });   
 }
 
+const dialog = document.querySelector("dialog");
+dialog.showModal();
+// setTimeout(()=>{dialog.showModal()}, 700);
+
 function displayWinner(currentPlayer) {
-    const dialog = document.querySelector("dialog");
     const status = document.querySelector("#status");
     currentPlayer === "x" ? status.innerHTML = 'Player 1 wins' : status.innerHTML = 'Player 2 wins'
 
     // Bot: stops playing after declaring winner
     botCanPlay = !botCanPlay;
-    setTimeout(()=>{dialog.showModal()}, 700);
 }
 
 

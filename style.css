@@ -3,11 +3,14 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Noto sans';
+    /* font-family: 'Poppins', sans-serif; */
     font-weight: bold;
 }
 
 :root{
     --thin-borders: 1px solid black;
+    --x-color: #00ffff;
+    --o-color: #ff00ff;
 }
 
 html{
@@ -15,7 +18,7 @@ html{
 }
 
 body{
-    /* background-color: #1c70b4; */
+    background: linear-gradient(135deg, #0a0a0f);
 
 }
 
@@ -24,63 +27,80 @@ body{
 }
 
 
-.score-board{
+.score-board {
     display: flex;
-    gap: 10px;
-    margin: auto;
-    margin-top: 10px;
-    width: fit-content;
-    height: fit-content;
-}
-
-.score-board > .scores{
-    height: 80px;
-    border: var(--thin-borders);
-    border-radius: 10px;
-}
-
-.draw{
-    width: 100px;
-}
-
-.player-score{
-    display: flex;
-    width: 300px;
-}
-
-.profile{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 0px;
-    width: 70%;
-    height: 100%;
-    border-top: none;
-    border-bottom: none;
-    border: var(--thin-borders);
-}
-
-.avatar{
-    width: 50px;
-    height: 50px;
-    border: var(--thin-borders);
-    border-radius: 50%;
-    /* margin-left: 10px; */
-}
-
-p{
-    position: relative;
-    font-size: 23px;
-    /* margin-left: 10px; */
-
-}
-
-.score{
-    display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
-    width: 30%;
-    /* border: var(--thin-borders); */
+    gap: 20px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+/* Shared style for each score panel */
+.score {
+    background: rgba(15, 15, 25, 0.7);
+    border-radius: 16px;
+    padding: 15px 25px;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    box-shadow: 0 0 12px rgba(255,255,255,0.1);
+    cursor: default;
+}
+
+/* Player 1 (Cyan) */
+.score.player1 {
+    border: 2px solid #00ffff99;
+    box-shadow: 0 0 20px #00ffff44;
+}
+
+.score.player1 h3 {
+    color: #00ffff;
+}
+
+.score.player1 .points {
+    font-size: 2em;
+    color: #00ffff;
+    text-shadow: 0 0 10px var(--x-color);
+}
+
+/* Draws (Neutral Purple Glow) */
+.score.draws {
+    border: 2px solid #8b5cf6aa;
+    box-shadow: 0 0 20px #8b5cf633;
+}
+
+.score.draws h3 {
+    color: #a78bfa;
+}
+
+.score.draws .points {
+    font-size: 2em;
+    color: #a78bfa;
+    text-shadow: 0 0 10px #a78bfa;
+}
+
+/* Player 2 (Magenta) */
+.score.player2 {
+    border: 2px solid #ff00ff99;
+    box-shadow: 0 0 20px #ff00ff44;
+}
+
+.score.player2 h3 {
+    color: var(--o-color);
+}
+
+.score.player2 .points {
+    font-size: 2em;
+    color: var(--o-color);
+    text-shadow: 0 0 10px var(--o-color);
+}
+
+/* Hover glow animation */
+.score:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px currentColor;
 }
 
 .game{
@@ -91,8 +111,6 @@ p{
     width: 100%;
     margin-top: 120px;
     border-radius: 20px;
-    /* padding: 80px 60px; */
-    /* background-color: #4682B4; */
 }
 
 .cells-container{
@@ -109,9 +127,7 @@ p{
     align-items: center;
     width: 70px;
     height: 70px;
-    /* background-color: white; */
-    /* background-color: #b8d0db; */
-    border: var(--thin-borders);
+    background-color: rgba(20, 20, 30, 0.8);
     border-radius: 5px;
 }
 
@@ -145,32 +161,60 @@ p{
     }
 }
 
-dialog{
-    padding: 50px 70px;
+.intro, .bot-level-prompt{
     margin: auto;
-    margin-top: 20px;
+    padding: 70px 50px;
+    background-color: rgba(15, 15, 25, 0.7);
     border: none;
-    border-radius: 10px;
 }
 
-button{
-    margin-top: 20px;
-    padding: 18px 10px;
-    background-color: #1c70b4;
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
 
-button:focus{
+.game-title{
+    margin-bottom: 15px;
     outline: none;
+    color: var(--x-color);
+    border: none;
+    font-size: 2rem;
+    text-align: center;
 }
 
-button:hover{
-    cursor: pointer;
+.game-modes-container{
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    height: fit-content;
+    gap: 15px;
 }
 
-button:active{
-    outline: 2px solid #1c70b4;
+.game-mode{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 45px;
+    padding: 0px;
+    background-color: inherit;
+    border: none;
+    text-align: center;
+    text-transform: uppercase;
+}   .game-mode:focus{
+    outline: none;
+}   .game-mode:hover{
+    border-radius: 5px;
+    outline:  1px solid var(--x-color);
     outline-offset: 2px;
+    cursor: pointer; 
+    transition: outline 0.8s ease;
 }
+
+.game-mode .avatar{
+    border-radius: 50%;
+    height: 100%;
+}
+
+.game-mode span{
+    color: var(--x-color);
+    position: relative;
+    top: 15px;
+}
+
+
