@@ -15,12 +15,18 @@ const gameMode = {
 
 function selectMode(mode) {
     if (mode === 'pvp') {
+        // Player VS Player
         gameMode.pvp.src = './pvp.js';
         document.body.appendChild(gameMode.pvp);
+        displayPlayers("Player 1", "Player 2");
+
+        // closes first prompt
         gameModePrompt.close();
     } else if (mode === 'bot') {
+        // Player VS Bot
         gameMode.bot.src = './bot.js';
         document.body.appendChild(gameMode.bot);
+        displayPlayers("You", "Bot")
     }
 
     // If bot game mode was selected
@@ -31,6 +37,16 @@ function selectMode(mode) {
     }
 }
 
+// Displaying of Player names on score board
+const playerElements = {
+    first: document.getElementById('firstPlayer'),
+    second: document.getElementById('secondPlayer')
+}
+
+function displayPlayers(firstPlayer, secondPlayer) {
+    playerElements.first.innerText = firstPlayer;
+    playerElements.second.innerText = secondPlayer;
+}
 
 
 // Tic Tac Toe
@@ -62,6 +78,7 @@ const symbols = {
 
 
 
+
 const gameCell = document.querySelectorAll(".empty");
 const displayAnimation = (i, currentPlayer) => {
     currentPlayer === 'x' ? gameCell[i].innerHTML = `${symbols.x}` : gameCell[i].innerHTML = `${symbols.o}`    
@@ -72,11 +89,7 @@ const displayAnimation = (i, currentPlayer) => {
 
 
 function changePlayer() {
-    if (isFirstPlayer) {
-        currentPlayer = "x";
-    } else {
-        currentPlayer = "o"
-    }
+    isFirstPlayer ? currentPlayer = "x" : currentPlayer = "o";
 }
 
 
@@ -96,7 +109,19 @@ function pass(){
         case (cell[0] === currentPlayer && cell[1] === currentPlayer && cell[2] === currentPlayer): displayWinner(currentPlayer); break; 
         case (cell[3] === currentPlayer && cell[4] === currentPlayer && cell[5] === currentPlayer): displayWinner(currentPlayer); break; 
         case (cell[6] === currentPlayer && cell[7] === currentPlayer && cell[8] === currentPlayer): displayWinner(currentPlayer); break; 
+        
+        default: displayDraw();
+        break;
     }
 
+}
+
+function displayDraw(){
+    console.log("checking for draws..")
+    let numOfX = document.querySelectorAll('.x').length;
+    let numOfO = document.querySelectorAll('.o').length;
+    if (numOfX === 5 && numOfO === 4 || numOfX === 4 && numOfO=== 5) {
+        displayWinner("Draw");
+    } 
 }
 

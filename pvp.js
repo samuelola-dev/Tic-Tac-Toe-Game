@@ -1,10 +1,18 @@
 let isFirstPlayer = true;
 let currentPlayer = "x";
 
+let scores = {
+    player1: 0,
+    player2: 0,
+    draw: 0
+}
+
+displayScores();
+
 
 for (let i = 0; i < gameCell.length; i++) {
     gameCell[i].addEventListener('click', ()=>{
-        
+
         if (gameCell[i].classList.contains("empty")) {
             cell[i] = currentPlayer;   
             displayAnimation(i, currentPlayer);
@@ -14,15 +22,27 @@ for (let i = 0; i < gameCell.length; i++) {
             pass();
         }
         changePlayer();
-        console.log(gameCell);
-        console.log(cell);
-
     });   
 }
 
+const resultPrompt = document.querySelector(".result-prompt");
+
 function displayWinner(currentPlayer) {
-    const dialog = document.querySelector("dialog");
     const status = document.querySelector("#status");
-    currentPlayer === "x" ? status.innerHTML = 'Player 1 wins' : status.innerHTML = 'Player 2 wins'
-    setTimeout(()=>{dialog.showModal()}, 700);
+    currentPlayer === "x" ? status.innerText = 'Player 1 wins' : status.innerText = 'Player 2 wins';
+    currentPlayer === "Draw" && (status.innerText = "Draw");
+    
+    setTimeout(()=>{
+        resultPrompt.showModal();
+        displayScores();
+    }, 700);
 }
+
+function displayScores() {
+    
+}
+
+
+
+
+

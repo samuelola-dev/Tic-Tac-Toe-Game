@@ -1,15 +1,12 @@
 // Tic Tac Toe Bot
 
-// Bot Levels Prompt
-// const botLevelPrompt = document.querySelector(".bot-level-prompt")
-
-
 // Bot Levels
 const gameLevel = {
     easy: document.createElement('script'),
     medium: document.createElement('script'),
     hard: document.createElement('script'),
 }
+
 
 // Player chooses bot level
 function startGame(level){
@@ -26,7 +23,11 @@ function startGame(level){
     botLevelPrompt.close();
 }
 
-
+let scores = {
+    you: 0,
+    bot: 0,
+    draw: 0
+}
 
 
 let isFirstPlayer = true;
@@ -53,17 +54,24 @@ for (let i = 0; i < gameCell.length; i++) {
     });   
 }
 
-const dialog = document.querySelector("dialog");
-dialog.showModal();
-// setTimeout(()=>{dialog.showModal()}, 700);
+
+const resultPrompt = document.querySelector(".result-prompt");
 
 function displayWinner(currentPlayer) {
     const status = document.querySelector("#status");
-    currentPlayer === "x" ? status.innerHTML = 'Player 1 wins' : status.innerHTML = 'Player 2 wins'
+    currentPlayer === "x" ? status.innerText = 'Player 1 wins' : status.innerText = 'Player 2 wins';
+    currentPlayer === "Draw" && (status.innerText = "Draw");
+    
+    setTimeout(()=>{
+        resultPrompt.showModal();
+        // displayScores();
+    }, 700);
 
     // Bot: stops playing after declaring winner
     botCanPlay = !botCanPlay;
 }
+
+
 
 
 
@@ -196,7 +204,7 @@ function botBlock() {
         case (cell[6] !== bot && cell[7] === firstPlayer && cell[8] === firstPlayer): botCanBlock(6); break;
         case (cell[6] === firstPlayer && cell[7] !== bot && cell[8] === firstPlayer): botCanBlock(7); break;
         case (cell[6] === firstPlayer && cell[7] === firstPlayer && cell[8] !== bot): botCanBlock(8); break;
-        default: botRandom(); break;
+        default: botRandom(); displayDraw(); break;
     }
 }
 

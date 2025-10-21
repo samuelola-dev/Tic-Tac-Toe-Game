@@ -38,9 +38,10 @@ body{
 
 /* Shared style for each score panel */
 .score {
+    width: 120px;
     background: rgba(15, 15, 25, 0.7);
     border-radius: 16px;
-    padding: 15px 25px;
+    padding: 20px 0;
     text-align: center;
     font-family: 'Orbitron', sans-serif;
     letter-spacing: 1px;
@@ -161,7 +162,8 @@ body{
     }
 }
 
-.intro, .bot-level-prompt{
+/* Game Prompts */
+.game-mode-prompt, .bot-level-prompt, .result-prompt{
     margin: auto;
     padding: 70px 50px;
     background-color: rgba(15, 15, 25, 0.7);
@@ -169,7 +171,7 @@ body{
 }
 
 
-.game-title, .bot-level-prompt h3{
+.game-title, .bot-level-prompt h3, .result-prompt h3{
     margin-bottom: 15px;
     outline: none;
     color: var(--x-color);
@@ -196,11 +198,11 @@ body{
     border: none;
     text-align: center;
     text-transform: uppercase;
-}   .game-mode:focus, .bot-level:focus{
+}   .game-mode:focus, .bot-level:focus, .result-prompt button:focus{
     outline: none;
 }   .game-mode:hover, .bot-level:hover{
     border-radius: 5px;
-    outline:  1px solid var(--x-color);
+    outline:  2px solid var(--x-color);
     outline-offset: 2px;
     cursor: pointer; 
     transition: outline 0.8s ease;
@@ -217,6 +219,8 @@ body{
     top: 15px;
 }
 
+/* Bot Level Prompt */
+
 .bot-level{
     width: 100%;
     height: 45px;
@@ -229,4 +233,45 @@ body{
 }
 
 
+.bot-level.medium{
+    color: #a78bfa;
+} .bot-level.medium:hover{
+    outline-color: #a78bfa;
+}
 
+.bot-level.hard{
+    color: var(--o-color)
+} .bot-level.hard:hover{
+    outline-color: var(--o-color);
+}
+
+/* Resulr Prompt */
+.result-actions{
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+}
+
+.result-actions button{
+    width: 45%;
+    padding: 10px 0;
+    color: inherit;
+    background-color: #00ffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+} .result-actions button:hover{
+    outline: 2px solid #00ffff;
+    outline-offset: 2px;
+}
+
+.result-actions .restart{
+    background-color: #ff00ff;
+}
+.result-actions .restart:hover{
+    outline: 2px solid #ff00ff;
+}
+
+#status{
+    text-align: center;
+}
