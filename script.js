@@ -50,7 +50,7 @@ function displayPlayers(firstPlayer, secondPlayer) {
 
 
 // Tic Tac Toe
-const cell = [
+let cell = [
     0, 1, 2, 
     3, 4, 5, 
     6, 7, 8
@@ -68,30 +68,22 @@ const symbols = {
   </div>
     `,
     o:  `
-        <div class="o-symbol">
-    <svg viewBox="0 0 120 120" width="65" height="65">
-      <circle cx="60" cy="60" r="34" fill="none" stroke="#ff00ff" stroke-width="16" stroke-linecap="round" />
-    </svg>
+    <div class="o-symbol">
+        <svg viewBox="0 0 120 120" width="65" height="65">
+            <circle cx="60" cy="60" r="34" fill="none" stroke="#ff00ff" stroke-width="16" stroke-linecap="round" />
+        </svg>
   </div>
     `
 }
-
-
-
 
 const gameCell = document.querySelectorAll(".empty");
 const displayAnimation = (i, currentPlayer) => {
     currentPlayer === 'x' ? gameCell[i].innerHTML = `${symbols.x}` : gameCell[i].innerHTML = `${symbols.o}`    
 }
 
-// let isFirstPlayer = true;
-
-
-
 function changePlayer() {
     isFirstPlayer ? currentPlayer = "x" : currentPlayer = "o";
 }
-
 
 function pass(){
 
@@ -116,12 +108,46 @@ function pass(){
 
 }
 
+// Game Draw
 function displayDraw(){
-    console.log("checking for draws..")
     let numOfX = document.querySelectorAll('.x').length;
     let numOfO = document.querySelectorAll('.o').length;
-    if (numOfX === 5 && numOfO === 4 || numOfX === 4 && numOfO=== 5) {
-        displayWinner("Draw");
-    } 
+    (numOfX === 5 && numOfO === 4 || numOfX === 4 && numOfO=== 5) 
+    && displayWinner("Draw");
 }
 
+let scores = {
+    player1: 0,
+    player2: 0,
+    draw: 0
+}
+
+// Add and Display Player Score on Scoreboard
+const scoreElements = document.querySelectorAll(".points")
+function addPlayerScore(currentPlayer){
+    if (currentPlayer === "x") {
+        scores.player1++;
+        scoreElements[0].innerText = scores.player1;
+    } else if (currentPlayer === "o") {
+        scores.player2++;
+        scoreElements[2].innerText = scores.player2;
+    } else {
+        scores.draw++;
+        scoreElements[1].innerText = scores.draw;
+    }
+}
+
+function continueGame(){
+    resultPrompt.close();
+
+    // Restores initial state
+    cell = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    const gameCell = document.querySelectorAll(".cell");
+    gameCell.forEach((cell)=> {
+        cell.innerHTML = "";
+        cell.classList.remove('x'); cell.classList.remove('o'); cell.classList.remove('bot');
+        cell.classList.add('empty');
+    });
+    botCanPlay = true;
+    botChoice();
+}

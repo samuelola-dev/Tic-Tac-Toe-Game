@@ -1,10 +1,3 @@
-let firstPlayer = "x";
-let bot = "o";
-// let currentPlayer = "x";
-
-// Store first player and second player in local storage
-
-
 function botChoice() {
     isFirstPlayer = !isFirstPlayer;
     changePlayer();

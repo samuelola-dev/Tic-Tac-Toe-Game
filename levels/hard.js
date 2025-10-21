@@ -1,9 +1,3 @@
-let firstPlayer = "x";
-let bot = "o";
-// let currentPlayer = "x";
-
-// Store first player and second player in local storage
-
 function botChoice() {
     isFirstPlayer = !isFirstPlayer;
     changePlayer();
@@ -11,6 +5,8 @@ function botChoice() {
     hardMode();
     isFirstPlayer = !isFirstPlayer;
 }
+
+botChoice();
 
 // Hard Mode
 
@@ -34,7 +30,7 @@ function botCanWin(winCell){
     }
 }
 
-// High Block Chances (100%)
+// High Blocking Chances (100%)
 function botCanBlock(blockedCell){
     const block = [true, true, true, true, true];
     const blockDecision = block[Math.floor(Math.random() * block.length)];
@@ -43,7 +39,7 @@ function botCanBlock(blockedCell){
         console.log("Bot: can block 'n taken");
         botTurn(blockedCell);
     } else {
-        console.log("Bot: can block 'n ignored")
+        console.log("Bot: can block 'n ignored");
         botRandom();
     }
 }

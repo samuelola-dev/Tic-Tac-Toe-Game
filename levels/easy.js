@@ -1,10 +1,3 @@
-let firstPlayer = "x";
-let bot = "o";
-// let currentPlayer = "x";
-
-// Store first player and second player in local storage
-
-
 function botChoice() {
     isFirstPlayer = !isFirstPlayer;
     changePlayer();
@@ -35,7 +28,7 @@ function botCanWin(winCell){
     }
 }
 
-// Low Block Chances (40%)
+// Low Blocking Chances (40%)
 function botCanBlock(blockedCell){
     const block = [true, false, false, true, false];
     const blockDecision = block[Math.floor(Math.random() * block.length)];
