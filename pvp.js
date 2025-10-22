@@ -25,17 +25,25 @@ function displayWinner(currentPlayer) {
     const status = document.querySelector("#status");
     currentPlayer === "x" ? status.innerText = 'Player 1 wins' : status.innerText = 'Player 2 wins';
     currentPlayer === "Draw" && (status.innerText = "Draw");
+    disablePlay();
 
     // Saves current player's score
     addPlayerScore(currentPlayer);
-    
+
     setTimeout(()=>{
         resultPrompt.showModal();
-        
     }, 700);
 
     // Saves winner
     winner = currentPlayer;
+}
+
+// Prevent Players from playing
+const empty = document.querySelectorAll(".empty");
+function disablePlay(){
+    empty.forEach((cell)=>{
+        cell.style = "pointer-events: none;";
+    });
 }
 
 

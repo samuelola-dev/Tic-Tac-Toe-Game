@@ -229,8 +229,12 @@ body{
     border: none;
     font-size: 1rem;
     text-align: center;
+    transition-property: outline;
 }
 
+.bot-level:hover{
+    outline: 2px solid;
+}
 
 .bot-level.medium{
     color: #a78bfa;
@@ -295,8 +299,11 @@ body{
 /* Mobile Responsiveness */
 
 @media screen  and (max-width: 768px) {
+    .score-board{
+        gap: 10px;
+    }
     .game-mode-prompt, .bot-level-prompt, .result-prompt{
-        padding: 80px  30px;
+        padding: 80px 20px;
     }
 
     .game-mode{
@@ -309,8 +316,12 @@ body{
         font-size: 14px;
     }
 
+    .result-actions{
+        width: 280px;    
+    }
+
     .bot-level{
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .author{

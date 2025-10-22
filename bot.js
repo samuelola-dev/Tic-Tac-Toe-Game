@@ -22,7 +22,9 @@ function startGame(level){
         gameLevel.hard.src = './levels/hard.js'
         document.body.appendChild(gameLevel.hard);
     }
-    botLevelPrompt.close();
+    setTimeout(()=>{
+        botLevelPrompt.close();
+    }, 300);
 }
 
 // Bot
