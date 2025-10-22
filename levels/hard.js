@@ -6,7 +6,6 @@ function botChoice() {
     isFirstPlayer = !isFirstPlayer;
 }
 
-botChoice();
 
 // Hard Mode
 

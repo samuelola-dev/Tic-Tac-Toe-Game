@@ -3,7 +3,7 @@ function botChoice() {
     changePlayer();
     disablePlay();
     easyMode();
-    isFirstPlayer = !isFirstPlayer;
+    isFirstPlayer = !isFirstPlayer;   
 }
 
 // Easy Mode

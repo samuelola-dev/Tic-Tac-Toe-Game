@@ -275,3 +275,14 @@ body{
 #status{
     text-align: center;
 }
+
+/* Indicates Players Turn */
+.player1-turn{
+    outline: 1px solid #00ffff; 
+    outline-offset: 3px;
+}
+
+.player2-turn{
+    outline: 1px solid #ff00ff; 
+    outline-offset: 3px;
+}

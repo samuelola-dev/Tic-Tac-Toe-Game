@@ -1,5 +1,7 @@
 // Tic Tac Toe Bot
 
+
+
 // Bot Levels
 const gameLevel = {
     easy: document.createElement('script'),
@@ -29,7 +31,10 @@ let firstPlayer = "x";
 let isFirstPlayer = true;
 let bot = 'o';
 let botCanPlay = true;
+let currentPlayer = 'x';
 
+
+// Player
 for (let i = 0; i < gameCell.length; i++) {
     gameCell[i].addEventListener('click', ()=>{
         
@@ -48,26 +53,27 @@ for (let i = 0; i < gameCell.length; i++) {
     });   
 }
 
-
 const resultPrompt = document.querySelector(".result-prompt");
+let winner = '';
 
 function displayWinner(currentPlayer) {
     const status = document.querySelector("#status");
     currentPlayer === "x" ? status.innerText = 'You win' : status.innerText = 'Bot wins';
     currentPlayer === "Draw" && (status.innerText = "Draw");
 
+    // Saves current player's score
+    addPlayerScore(currentPlayer);
+
     setTimeout(()=>{
         resultPrompt.showModal();
     }, 700);
 
-    // Saves current player's score
-    addPlayerScore(currentPlayer);
+    // Saves winner
+    winner = currentPlayer;
 
     // Bot: stops playing after declaring winner
     botCanPlay = !botCanPlay;
 }
-
-
 
 const empty = document.querySelectorAll(".empty");
 

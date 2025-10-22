@@ -81,10 +81,38 @@ const displayAnimation = (i, currentPlayer) => {
     currentPlayer === 'x' ? gameCell[i].innerHTML = `${symbols.x}` : gameCell[i].innerHTML = `${symbols.o}`    
 }
 
-function changePlayer() {
-    isFirstPlayer ? currentPlayer = "x" : currentPlayer = "o";
+function indicateTurn (player){
+    let player1Turn = document.querySelector('.player1');
+    let player2Turn = document.querySelector('.player2');
+    
+    if (player === 'player1') {
+        player1Turn.classList.add('player1-turn');
+        player2Turn.classList.remove('player2-turn');
+    } else {
+        player2Turn.classList.add('player2-turn');
+        player1Turn.classList.remove('player1-turn')
+    }
 }
 
+function changePlayer() {
+    if (isFirstPlayer) {
+        currentPlayer = 'x';
+        indicateTurn('player1'); 
+
+        // Bot: enables indication with transition
+        if (botCanPlay) {
+            setTimeout(()=>{
+               indicateTurn('player1'); 
+           }, 1300);
+        }
+    } else {
+        currentPlayer = 'o';
+        indicateTurn('player2');
+    }
+}
+
+
+// Checks if current player wins
 function pass(){
 
     switch (true) {
@@ -149,5 +177,9 @@ function continueGame(){
         cell.classList.add('empty');
     });
     botCanPlay = true;
-    botChoice();
+    
+    if (winner === 'x') {
+        changePlayer();
+        botChoice();
+    }
 }
