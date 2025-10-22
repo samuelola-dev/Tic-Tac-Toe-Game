@@ -34,17 +34,18 @@ Welcome to the **Tic-Tac-Toe Game**! A classic game of Xs and Os built by [samue
 
 ## 🖥️ Demo
 
-[![Check it Out](https://img.shields.io/badge/Live%20Demo-Click%20Here-brightgreen?style=for-the-badge)](https://github.com/samuelola-dev/Tic-Tac-Toe-Game)
+[![Check it Out](https://img.shields.io/badge/Live%20Demo-Click%20Here-brightgreen?style=for-the-badge)](https://tic-tac-toe-game-u8ko.onrender.com)
 
----
+--- 
 
 ## 📸 Screenshots
-
+![alt text](images/tic-tac-toe-desktop.jpg)
+![alt text](images/pvbot.png) ![alt text](images/pvp.png)
 
 ## 🛠️ Built With
 
 - HTML, CSS, JavaScript
-<!-- Add frameworks/libraries if used -->
+
 
 ---
 
