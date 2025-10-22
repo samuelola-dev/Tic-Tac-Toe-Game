@@ -160,9 +160,10 @@ body{
 
 /* Game Prompts */
 .game-mode-prompt, .bot-level-prompt, .result-prompt{
-    margin: auto;
+    overflow-x: hidden;
     width: fit-content;
     height: fit-content;
+    margin: auto;
     padding: 70px 50px;
     background-color: rgba(15, 15, 25, 0.7);
     border: none;
