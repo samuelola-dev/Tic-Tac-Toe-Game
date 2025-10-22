@@ -46,6 +46,12 @@ function disablePlay(){
     });
 }
 
+function enablePlay(){
+    empty.forEach((cell)=>{
+        cell.style = "pointer-events: auto;";
+    });
+}
+
 
 
 
