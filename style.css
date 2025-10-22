@@ -13,13 +13,9 @@
     --o-color: #ff00ff;
 }
 
-html{
-    
-}
-
 body{
     background: linear-gradient(135deg, #0a0a0f);
-
+    overflow-x: hidden;
 }
 
 .app{
@@ -165,6 +161,8 @@ body{
 /* Game Prompts */
 .game-mode-prompt, .bot-level-prompt, .result-prompt{
     margin: auto;
+    width: fit-content;
+    height: fit-content;
     padding: 70px 50px;
     background-color: rgba(15, 15, 25, 0.7);
     border: none;
@@ -285,4 +283,37 @@ body{
 .player2-turn{
     outline: 1px solid #ff00ff; 
     outline-offset: 3px;
+}
+
+.author{
+    color: #00ffff;
+    text-align: center;
+    margin-top: 60px;
+}
+
+/* Mobile Responsiveness */
+
+@media screen  and (max-width: 768px) {
+    .game-mode-prompt, .bot-level-prompt, .result-prompt{
+        padding: 80px  30px;
+    }
+
+    .game-mode{
+        height: 70px;
+    }
+
+    .game-mode span{
+        position: relative;
+        top: 25px;
+        font-size: 14px;
+    }
+
+    .bot-level{
+        font-size: 1.5rem;
+    }
+
+    .author{
+        margin-top: 120px;
+    }
+
 }
