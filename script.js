@@ -177,6 +177,7 @@ function continueGame(){
         cell.classList.add('empty');
     });
     botCanPlay = true;
+    enablePlay();
     
     if (winner === 'x') {
         changePlayer();
