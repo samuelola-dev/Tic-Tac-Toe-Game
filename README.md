@@ -39,9 +39,11 @@ Welcome to the **Tic-Tac-Toe Game**! A classic game of Xs and Os built by [samue
 --- 
 
 ## 📸 Screenshots
+
 ![alt text](images/tic-tac-toe-desktop.jpg)
-![alt text](images/bot-mode.png)
-![alt text](images/pvbot.png) 
+![alt text](images/tic-tac-toe-bot-level.jpg)
+![alt text](images/tic-tac-toe-pvbot.jpg)
+![alt text](images/tic-tac-toe-win.jpg)
 
 ## 🛠️ Built With
 
